@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    /* outline: 1px solid limegreen !important;  */
+  }
+  
+  :root {
+    --primary-ff: 'Karla', sans-serif;
+    --secondary-ff: Inter, Avenir, Helvetica, Arial, sans-serif;
+    --main-color: #293264;
+    --ans-tx-sz: 0.64rem;
+    --que-tx-sz: 1rem; 
+    line-height: 1.5rem;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Global styles */
+  body {  
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+  }
+  
+   #root::before {
+    position: absolute;
+    content: "";
+    width: 12vmin;
+    height: 12vmin;
+    background: #FFFAD1;
+    z-index: 1;
+    right: 0%;
+    top: 0%;
+    border-bottom-left-radius: 6rem;
+  } 
+  
+  #root {
+    position: relative;
+    width: min(100%, 45rem);
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #F5F7FB;
+    margin-inline: auto;
+    overflow: hidden;
+  }
+  
+  #root::after {
+    position: absolute;
+    content: "";
+    width: 10vmin;
+    height: 10vmin;
+    z-index: 1;
+    background: #DEEBF8;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 9rem;
+    
+  } 
+  
+  .main {
+    display: grid;
+    width: min(100% - 2rem 35rem);
+    margin-inline: auto;
+    padding: 3rem;
+  }
+  
+  /*** quiz typography ****/
+  
+  .question {
+    font-family: var(--primary-ff);
+    font-size: var(--que-tx-sz);
+    font-weight: 700;
+    color: var(--main-color);
+  }
+  
+  .answer {
+    font-family: var(--secondary-ff);
+    font-weight: 500;
+    font-size: var(--ans-tx-sz);
+    text-align: center;
+    border: 0.05rem solid #4D5B9E;
+    border-radius: 0.5rem;
+    padding: .2rem .5rem;
+    color: var(--main-color);
+    cursor: pointer;
+  }
+  
+  .scores-display {
+    font-family: var(--secondary-ff);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--main-color);
+    margin-bottom: 0;
+  }
+  
+  /* all buttons */
+  button {
+    font-family: var(--secondary-ff);
+    font-weight: 600;
+    font-size: var(--ans-tx-sz);
+    background: #4D5B9E;
+    color: #F5F7FB;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.875rem;
+  }
+  
+  /**** quiz Layout ****/
+  .quiz-wrapper {
+    display: grid;
+    border-bottom: 0.05rem solid #DBDEF0;
+    padding: .75rem;
+  }
+  
+  
+  .quiz-wrapper:nth-child(5) {
+    border: none;
+    padding-bottom: 0;
+  }
+  
+  .answers--wrapper {
+    display: grid;
+    grid-template-columns: 
+    repeat(auto-fill, minmax(min(100%, 121px), 1fr));
+    gap: 1rem;
+    list-style-position: inside;
+    padding: .5rem 0; 
+  }
+  
+  .btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  /* Start page */
+  .title {
+    font-family: var(--primary-ff);
+    font-weight: 700;
+    font-size: 1.9rem;
+    text-align: center;
+    color: var(--main-color);
+  }
+  
+  /* All input elements */
+  .category {
+    font-family: var(--primary-ff);
+    background-color: #F5F7FB;
+    color: var(--main-color);
+    padding: .5rem;
+    border: 0.05rem solid #DBDEF0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .category-title {
+    font-family: var(--secondary-ff);
+    font-size: var(--ans-tx-sz);
+    background: #4D5B9E;
+    color: #F5F7FB;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .start-btn {
+    padding: 1rem 1.75rem;
+    cursor: pointer;
+  }
+  
+  fieldset {
+    display: grid;
+    grid-template-columns: 
+    repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 1rem;
+    border: none;
+    margin: 1.2rem 0;
+    padding: 0;
+  }
+  
+  .start-btn-container {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  @media (max-width: 767px) {
+    .main {
+      padding: 3rem 1rem;
+    }
+    .quiz-wrapper {
+      padding: 1rem 0;
+    }
+  
+  .answers--wrapper {
+    grid-template-columns: 
+      repeat(auto-fill, minmax(min(100%, 160px), 1fr)); 
+  }
+  
+  }
+  
+  @media (max-width: 300px) {
+    .main {
+      padding: 1rem .5rem;
+    }
+  
+    .btn-wrapper {
+      flex-direction: column;
+    }
+    
+    .menu-btn {
+      margin: .5rem 0 0;
+      order: 1;
+    }
+  
+  }
